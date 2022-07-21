@@ -8,7 +8,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 public class App {
     public static void main(String[] args) throws Exception {
         // executar conexão HTTP e buscar os top 250 filmes
-        String url = "https://imdb-api.com/en/API/Top250Movies/k_0ojt0yvm";
+        String url = "https://api.mocki.io/v2/549a5d8b";
         URI endereco = URI.create(url);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
