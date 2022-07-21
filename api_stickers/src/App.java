@@ -6,6 +6,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
 import java.util.Map;
 
+
 public class App {
     public static void main(String[] args) throws Exception {
         // executar conexão HTTP e buscar os top 250 filmes
@@ -22,10 +23,14 @@ public class App {
 
         // exibir e manipular os dados
         for (Map<String,String> filme : listaDeFilmes) {
-            System.out.println(filme.get("title"));
-            System.out.println(filme.get("image"));
-            System.out.println(filme.get("imDbRating"));
-            System.out.println();
+            System.out.printf("\u001b[37;1m \u001b[44;1mTítulo do Filme:\u001b[m"+" "+filme.get("title")+"\n");
+            System.out.printf("\u001b[37;1m \u001b[46;1mPoster:\u001b[m"+" "+filme.get("image")+"\n");
+            double rating = Double.parseDouble(filme.get("imDbRating"));
+            System.out.printf("\u001b[37;1m \u001b[42;1mEstrelas:\u001b[m");
+            for(int i = 0; i < rating; ++i){
+                System.out.printf(" \u2B50");
+            }
+            System.out.println("\n");
         }
 
     }
